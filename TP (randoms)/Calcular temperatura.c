@@ -1,7 +1,7 @@
 #include <stdio.h>
-#define cant 10
-#define rangomax 20
-#define rangomin 10
+#define cantidad 10
+#define rango_maximo 20
+#define rango_minimo 10
 
 void ingresar_temps(int[]);
 int calcular_prom(int[]);
@@ -12,7 +12,7 @@ void print_resultados(int, int, int, int);
 
 
 int main(void){
-    int temp[cant];
+    int temp[cantidad];
     ingresar_temps(temp);
     int prom=calcular_prom(temp);
     int min=calcular_min(temp);
@@ -22,22 +22,23 @@ int main(void){
 
 }
 void ingresar_temps(int temp[]){
-    for(int i=0; i<cant; i++){
-        printf("ingresa la temperatura N%d: ",i+1);
+    for(int i=0; i<cantidad; i++){
+        printf("Bienvenido al programa que te indica el promedio, minimo, maximo y el rango de diferentes temperaturas\n");
+        printf("\ningresa la temperatura N°%d: ",i+1);
         scanf("%d", &temp[i]);
     }
 }
 int calcular_prom(int temp[]){
     int prom=0;
-    for(int i=0; i<cant; i++){
+    for(int i=0; i<cantidad; i++){
         prom+=temp[i];
     }
-    prom/=cant;
+    prom/=cantidad;
     return prom;
 }
 int calcular_min(int temp[]){
     int min=temp[0];
-    for(int i=0; i<cant; i++){
+    for(int i=0; i<cantidad; i++){
         if(temp[i]<min){
             min=temp[i];
         }
@@ -46,7 +47,7 @@ int calcular_min(int temp[]){
 }
 int calcular_max(int temp[]){
     int max=temp[0];
-    for(int i=0; i<cant; i++){
+    for(int i=0; i<cantidad; i++){
         if(temp[i]>max){
             max=temp[i];
         }
@@ -55,8 +56,8 @@ int calcular_max(int temp[]){
 }
 int calcular_rango(int temp[]){
     int rango=0;
-    for(int i=0; i<cant; i++){
-        if(temp[i]>=rangomin && temp[i]<=rangomax){
+    for(int i=0; i<cantidad; i++){
+        if(temp[i]>=rango_minimo && temp[i]<=rango_maximo){
             rango++;
         }
     }
@@ -65,5 +66,5 @@ int calcular_rango(int temp[]){
 void print_resultados(int prom, int min, int max, int rango){
     printf("El promedio fue de: %d\n", prom);
     printf("la temperatura minima: %d°C y la maxima de: %dC\n", min, max);
-    printf("hay %d temperaturas entre %d y %d\n", rango, rangomin, rangomax);
+    printf("hay %d temperaturas entre %d y %d\n", rango, rango_minimo, rango_maximo);
 }
